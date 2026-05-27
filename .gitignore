@@ -1,0 +1,28 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments & Dependencies
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Project-Specific Dataset & Generated Artifact Output Exclusions
+# Stops your 38,200 generated test masks and zip files from bloating GitHub
+submission_masks/
+*.zip
+*.tar.gz
+*.mp4
+
+# Operating System Junk
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+
+# IDE / Editor configurations
+.vscode/
+.idea/
