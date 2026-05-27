@@ -77,3 +77,94 @@ C:\Users\HP\miniconda3\envs\pscd_env\python.exe plot_text_sensitivity.py
 ├── submission_masks/           # Pipeline generated binary mask folders (test_1 to test_5)
 └── README.md                   # Repository documentation manual
 ```
+## Evaluation & Experimental Benchmarks
+
+We evaluate the Unified PSCDL Net on the public PSCD evaluation dataset against dominant vision-only baseline architectures. Performance benchmarks demonstrate a significant margin of improvement across all primary tracking metrics.
+
+### Quantitative Performance Comparison
+
+| Model Architecture | Input Modalities | Mean Precision | Mean Recall | **Mean F1-Score (Primary)** | Mean IoU |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| GeSCF | Visual Only | 0.4310 | 0.3732 | 0.4000 | 0.2800 |
+| RSCD | Visual Only | 0.5821 | 0.5034 | 0.5400 | 0.4000 |
+| C-3PO | Visual Only | 0.6944 | 0.6291 | 0.6600 | 0.5400 |
+| **Unified PSCDL Net (Ours)** | **Vision + Language (BERT)** | **0.7853** | **0.7029** | **0.7418 (+8.2%)** | **0.5948** |
+
+---
+
+### Core Performance Metrics
+
+The following composite dashboard breaks down our multi-metric capabilities and isolates the precise F1-Score discrepancies across models:
+
+<table width="100%">
+  <tr>
+    <td align="center" width="100%">
+      <img src="Graphs and Visuals/benchmarks_sota.png" alt="SOTA Benchmark Performance Matrix"/>
+      <br>
+      <sub><b>Figure 1:</b> Multi-Metric Radar Chart (Left) detailing global profile scaling vs. baseline variants; Leaderboard F1-Score Discrepancy (Right) showing an absolute +8.2% net gain over visual-only frameworks.</sub>
+    </td>
+  </tr>
+</table>
+
+---
+
+### Convergence Profiling & Parameter Efficiency
+
+We trace structural optimization paths and architectural tradeoffs to evaluate deployment feasibility. This isolates system stability alongside accuracy-to-footprint scaling:
+
+<table width="100%">
+  <tr>
+    <td align="center" width="50%">
+      <img src="Graphs and Visuals/training_convergence.png" alt="Model Training Loss Convergence"/>
+    </td>
+    <td align="center" width="50%">
+      <img src="Graphs and Visuals/architectural_efficiency_scatter.png" alt="Pareto Efficiency Scatter Plot"/>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">
+      <sub><b>Figure 2:</b> Dual-axis learning curves tracking loss trajectory vs. validation F1 progression (Left), and Pareto Frontier mapping down-stream classification accuracy relative to network parameter footprints (Right).</sub>
+    </td>
+  </tr>
+</table>
+
+---
+
+### Multi-Modal Grounding Verification & Execution Constraints
+
+To validate the multi-modal interaction and real-time operational readiness of the network, we monitor edge activation polarization, prompt attention density, and resolution throughput scaling:
+
+<table width="100%">
+  <tr>
+    <td align="center" width="33%">
+      <img src="Graphs and Visuals/mask_confidence_distribution.png" alt="Prediction Activation Distribution"/>
+    </td>
+    <td align="center" width="34%">
+      <img src="Graphs and Visuals/text_prompt_sensitivity.jpg" alt="Grounded Language Attention Sensitivity Heatmap"/>
+    </td>
+    <td align="center" width="33%">
+      <img src="Graphs and Visuals/hardware_fps_throughput.png" alt="Hardware Throughput FPS Execution Scaling"/>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3" align="center">
+      <sub><b>Figure 3:</b> Violin density distributions indicating pixel-level prediction confidence (Left), cross-modal attention matrix isolating text-to-feature matching accuracy (Center), and frame throughput tracking under scaling spatial resolutions (Right).</sub>
+    </td>
+  </tr>
+</table>
+
+---
+
+### Qualitative Boundary Segmentation & Spatial Errors
+
+The spatial mask profile below shows how our model handles localized change detection tasks under complex background conditions:
+
+<table width="100%">
+  <tr>
+    <td align="center" width="100%">
+      <img src="Graphs and Visuals/spatial_error_analysis.png" width="80%" alt="Spatial Segment Confusion Error Analysis Mask"/>
+      <br>
+      <sub><b>Figure 4:</b> Pixel-level error analysis mask illustrating persistent scene tracking capabilities and boundary alignment stability under ambient environmental noise.</sub>
+    </td>
+  </tr>
+</table>
