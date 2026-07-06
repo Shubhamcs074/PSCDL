@@ -25,4 +25,4 @@ Desktop.ini
 
 # IDE / Editor configurations
 .vscode/
-.idea/
+.idea/git push origin main
